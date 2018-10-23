@@ -7,43 +7,52 @@
 //			然后让两个数组下标相等的值进行交换
 //			这里我们需要定义一个临时变量作为值交换的桥梁
 #include<stdio.h>
+//int main()
+//{
+//	int a[5] = { 0 };
+//	int b[5] = { 0 };
+//	int temp = 0;
+//	int i = 0;
+//
+//	//获取数组
+//	printf("请输入两个长度为 5 的数组：\n");
+//	printf("a[5]= ");
+//	for (i = 0; i < 5; i++) {
+//		scanf("%d", &a[i]);
+//	}
+//	printf("b[5]= ");
+//	for (i = 0; i < 5; i++) {
+//		scanf("%d", &b[i]);
+//	}
+//
+//
+//	//两个数组中下标相同的元素进行值交换
+//	for (i = 0; i < 5; i++) {
+//		temp = a[i];
+//		a[i] = b[i];
+//		b[i] = temp;
+//	}
+//
+//	//输出交换后的结果
+//	printf("交换后的结果为：\na[5] = ");
+//	for (i = 0; i < 5; i++) {
+//		printf("%d ", a[i]);
+//	}
+//	printf("\nb[5] = ");
+//	for (i = 0; i < 5; i++) {
+//		printf("%d ", b[i]);
+//	}
+//	printf("\n");
+//	system("pause");
+//	return 0;
+//}
+
+//代码改进
 int main()
 {
-	int a[5] = { 0 };
-	int b[5] = { 0 };
-	int temp = 0;
-	int i = 0;
+	int arr1[5] = { 0 };
+	int arr2[5] = { 0 };
 
-	//获取数组
-	printf("请输入两个长度为 5 的数组：\n");
-	printf("a[5]= ");
-	for (i = 0; i < 5; i++) {
-		scanf("%d", &a[i]);
-	}
-	printf("b[5]= ");
-	for (i = 0; i < 5; i++) {
-		scanf("%d", &b[i]);
-	}
-
-	//两个数组中下标相同的元素进行值交换
-	for (i = 0; i < 5; i++) {
-		temp = a[i];
-		a[i] = b[i];
-		b[i] = temp;
-	}
-
-	//输出交换后的结果
-	printf("交换后的结果为：\na[5] = ");
-	for (i = 0; i < 5; i++) {
-		printf("%d ", a[i]);
-	}
-	printf("\nb[5] = ");
-	for (i = 0; i < 5; i++) {
-		printf("%d ", b[i]);
-	}
-	printf("\n");
-	system("pause");
-	return 0;
 }
 
 
