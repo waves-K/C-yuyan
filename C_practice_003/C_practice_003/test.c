@@ -5,7 +5,7 @@
 //1.将数组A中的内容和数组B中的内容进行交换。（数组一样大）
 //解题思路：首先需要从键盘获取两个长度相同的数组
 //			然后让两个数组下标相等的值进行交换
-//			这里我们需要定义一个临时变量作为值交换的桥梁
+//			这里我们需要定义一个临时变量 tmp 作为值交换的桥梁
 #include<stdio.h>
 //int main()
 //{
@@ -28,9 +28,9 @@
 //
 //	//两个数组中下标相同的元素进行值交换
 //	for (i = 0; i < 5; i++) {
-//		temp = a[i];
+//		tmp = a[i];
 //		a[i] = b[i];
-//		b[i] = temp;
+//		b[i] = tmp;
 //	}
 //
 //	//输出交换后的结果
@@ -48,12 +48,37 @@
 //}
 
 //代码改进
-int main()
-{
-	int arr1[5] = { 0 };
-	int arr2[5] = { 0 };
-
-}
+//int main()
+//{
+//	int arr1[5] = { 0 };
+//	int arr2[5] = { 0 };
+//	int i = 0;
+//	int sz = sizeof(arr1) / sizeof(arr1[0]);
+//
+//	printf("获取两个数组：\narr1[5] = ");
+//	for (i = 0; i < sz; i++) {
+//		scanf("%d", arr1);
+//	}
+//	printf("arr2[5] = ");
+//	for (i = 0; i < sz; i++) {
+//		scanf("%d", arr2);
+//	}
+//	
+//	for (i = 0; i < sz; i++) {
+//		int tmp = arr1[i];
+//		arr1[i] = arr2[i];
+//		arr2[i] = tmp;
+//	}
+//	for (i = 0; i < sz; i++) {
+//		printf("arr1[5] = %d \n", arr1[i]);
+//	}
+//	for (i = 0; i < sz; i++) {
+//		printf("arr2[5] = %d \n", arr2[i]);
+//	}
+//	
+//	system("pause");
+//	return 0;
+//}
 
 
 //2. 计算1 / 1 - 1 / 2 + 1 / 3 - 1 / 4 + 1 / 5 …… + 1 / 99 - 1 / 100 的值。
@@ -85,6 +110,24 @@ int main()
 //}
 
 
+//方法二：
+//int main()
+//{
+//	int i = 0;
+//	double sum = 0.0;
+//	int flag = 1;
+//
+//	for (i = 1; i <= 100; i++) {
+//		sum = sum + flag * 1.0 / i;
+//		flag = flag * (-1);
+//	}
+//
+//	printf("sum = %lf\n", sum);
+//	system("pause");
+//	return 0;
+//}
+
+
 //3. 编写程序数一下 1到 100 的所有整数中出现多少次数字9。
 //解题思路：首先将1-99之间的数拆分为个位数和十位数，
 //			然后分别与9比较，如果相等就加一，否则不加
@@ -101,7 +144,7 @@ int main()
 //			count++;
 //		}
 //	}
-//	printf("%d\n", count);
+//	printf("count = %d\n", count);
 //	system("pause");
 //	return 0;
 //}
