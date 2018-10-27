@@ -114,29 +114,50 @@
 
 
 ////eg4: getchar 深层理解
-#define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
-#include<stdlib.h>
-int main()
-{
-	char password[10] = {0};
-	int ch = 0;
-	printf("请输入密码：>");
-	scanf("%s", password);
-	while (strcmp(ch = getchar(),"123456" ) != 0); {
-		;
-	}
-	printf("请确认(Y/N)：>");
-	ch = getchar();
-	if (ch == "Y") {
-		printf("OK!\n");
-	}
-	else if (ch == "N") {
-		printf("NO\n");
-	}
-	system("pause");
-	return 0;
-}
+//	模拟实现用户登录
+//	getchar 指获取一个字符，一个字符用单引号
+
+//#define _CRT_SECURE_NO_WARNINGS
+//#include<stdio.h>
+//#include<stdlib.h>
+//int main()
+//{
+//	char password[10] = {0};
+//	int ch = 0;
+//	printf("请输入密码：>");
+//	scanf("%s", password);
+//	while (getchar() == '\n' ) {
+//		printf("请确认(Y/N)：>");
+//		ch = getchar();
+//		if (ch == 'Y') {
+//			if (strcmp(password, "123456") == 0)
+//			{
+//				printf("OK!\n");
+//				system("pause");
+//				return 0;
+//			}
+//			else
+//			{
+//				printf("密码错误,请重新输入：>");
+//				scanf("%s", password);
+//			}
+//		}
+//		else if (ch == 'N') {
+//			printf("请重新输入：>\n");
+//			scanf("%s", password);
+//		}
+//	}
+//	/*printf("请确认(Y/N)：>");
+//	ch = getchar();
+//	if (ch == 'Y') {
+//		printf("OK!\n");
+//	}
+//	else if (ch == 'N') {
+//		printf("NO\n");
+//	}*/
+//	system("pause");
+//	return 0;
+//}
 
 
 
@@ -201,6 +222,7 @@ int main()
 //	int i = 0;
 //	int j = 0;
 //
+//	//限制登录次数
 //	for (i = 0; i < 3; i++) {
 //		printf("请输入密码：>");
 //		scanf("%s", psw);
@@ -332,61 +354,61 @@ int main()
 
 
 //猜数字游戏
-
-
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
-
-void menu()
-{
-	printf("************************************\n");
-	printf("**************  1.play  ************\n");
-	printf("**************  0.exit  ************\n");
-	printf("************************************\n");
-}
-//TDD-测试驱动开发
-//RAND_MAX--rand 函数能返回随机数的最大值
-void game()
-{
-	int random_num = rand() % 100 + 1;
-	int input = 0;
-	while (1) {
-		printf("请输入猜的数字>:");
-		scanf("%d", &input);
-		if (input > random_num) {
-			printf("猜大了\n");
-		}
-		else if (input < random_num) {
-			printf("猜小了\n");
-		}
-		else
-		{
-			printf("恭喜你，猜对了\n");
-			break;
-		}
-	}
-}
-int main()
-{
-	int input = 0;
-	srand((unsigned)time(NULL));
-	do {
-		menu();
-		printf("请选择>:");
-		scanf("%d", &input);
-		switch (input) {
-		case 1:
-			game();
-			break;
-		case 0:
-			break;
-		default:
-			printf("选择错误，请重新输入！\n");
-			break;
-		}
-	} 
-	while (input);
-	system("pause");
-	return 0;
-}
+//
+//
+//#include<stdio.h>
+//#include<stdlib.h>
+//#include<time.h>
+//
+//void menu()
+//{
+//	printf("************************************\n");
+//	printf("**************  1.play  ************\n");
+//	printf("**************  0.exit  ************\n");
+//	printf("************************************\n");
+//}
+////TDD-测试驱动开发
+////RAND_MAX--rand 函数能返回随机数的最大值
+//void game()
+//{
+//	int random_num = rand() % 100 + 1;
+//	int input = 0;
+//	while (1) {
+//		printf("请输入猜的数字>:");
+//		scanf("%d", &input);
+//		if (input > random_num) {
+//			printf("猜大了\n");
+//		}
+//		else if (input < random_num) {
+//			printf("猜小了\n");
+//		}
+//		else
+//		{
+//			printf("恭喜你，猜对了\n");
+//			break;
+//		}
+//	}
+//}
+//int main()
+//{
+//	int input = 0;
+//	srand((unsigned)time(NULL));
+//	do {
+//		menu();
+//		printf("请选择>:");
+//		scanf("%d", &input);
+//		switch (input) {
+//		case 1:
+//			game();
+//			break;
+//		case 0:
+//			break;
+//		default:
+//			printf("选择错误，请重新输入！\n");
+//			break;
+//		}
+//	} 
+//	while (input);
+//	system("pause");
+//	return 0;
+//}
