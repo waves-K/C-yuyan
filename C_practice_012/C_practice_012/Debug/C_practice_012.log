@@ -1,0 +1,4 @@
+﻿  test.c
+e:\文件\vs-项目数据\项目\visual c++ 项目\c-yuyan\c_practice_012\c_practice_012\test.c(201): warning C4013: “strcpy”未定义；假设外部返回 int
+e:\文件\vs-项目数据\项目\visual c++ 项目\c-yuyan\c_practice_012\c_practice_012\test.c(209): warning C4013: “system”未定义；假设外部返回 int
+  C_practice_012.vcxproj -> E:\文件\vs-项目数据\项目\Visual C++ 项目\C-yuyan\C_practice_012\Debug\C_practice_012.exe
