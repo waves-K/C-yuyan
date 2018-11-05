@@ -1,0 +1,3 @@
+﻿  test.c
+e:\文件\vs-项目数据\项目\visual c++ 项目\c-yuyan\c_practice_014\c_practice_014\test.c(137): warning C4715: “is_prime”: 不是所有的控件路径都返回值
+  C_practice_014.vcxproj -> E:\文件\vs-项目数据\项目\Visual C++ 项目\C-yuyan\C_practice_014\Debug\C_practice_014.exe
