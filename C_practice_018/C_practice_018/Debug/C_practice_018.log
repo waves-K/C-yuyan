@@ -1,6 +1,2 @@
 ﻿  test.c
-e:\文件\vs-项目数据\项目\visual c++ 项目\c-yuyan\c_practice_018\c_practice_018\test.c(16): warning C4013: “getcher”未定义；假设外部返回 int
-e:\文件\vs-项目数据\项目\visual c++ 项目\c-yuyan\c_practice_018\c_practice_018\test.c(20): warning C4013: “putcher”未定义；假设外部返回 int
-test.obj : error LNK2019: 无法解析的外部符号 _getcher，该符号在函数 _main 中被引用
-test.obj : error LNK2019: 无法解析的外部符号 _putcher，该符号在函数 _main 中被引用
-E:\文件\vs-项目数据\项目\Visual C++ 项目\C-yuyan\C_practice_018\Debug\C_practice_018.exe : fatal error LNK1120: 2 个无法解析的外部命令
+  C_practice_018.vcxproj -> E:\文件\vs-项目数据\项目\Visual C++ 项目\C-yuyan\C_practice_018\Debug\C_practice_018.exe
