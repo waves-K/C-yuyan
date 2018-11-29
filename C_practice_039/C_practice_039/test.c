@@ -356,6 +356,7 @@ void *memmove(void *dst, const void *src, int count) {
 		*Non-Overlapping Buffers
 		*copy from lower addresses to higher adresses
 		*/
+
 		while (count--) {
 			*(char*)dst = *(char*)src;
 			dst = (char*)dst + 1;
