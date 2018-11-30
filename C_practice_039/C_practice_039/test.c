@@ -349,6 +349,9 @@
 //}
 
 
+
+
+
 void *memmove(void *dst, const void *src, int count) {
 	void *ret = dst;
 	if (dst <= src || (char*)dst >= ((char*)src + count)) {
