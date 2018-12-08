@@ -15,7 +15,14 @@ void menu1() {
 	printf("**************************\n");
 }
 
-void gameEasy() {
+void menu2() {
+	printf("*******************************\n");
+	printf("****  1. PlayerStartMove  *****\n");
+	printf("**** 2. ComputerStartMove *****\n");
+	printf("*******************************\n");
+}
+
+void EasyPlayerStartMove() {
 	int win = 0;
 	char board[ROW][COL] = { 0 };
 	InitBoard(board, ROW, COL);
@@ -46,24 +53,20 @@ void gameEasy() {
 	}
 }
 
-void gameDifficulty() {
+void EasyComputerStartMove() {
 	int win = 0;
-	int ret = 0;
 	char board[ROW][COL] = { 0 };
 	InitBoard(board, ROW, COL);
 	DisplayBoard(board, ROW, COL);
 	while (1) {
-		PlayerMove(board, ROW, COL);
+		ComputerEasyMove(board, ROW, COL);
 		DisplayBoard(board, ROW, COL);
 		win = CheckWin(board, ROW, COL);
 		if (win != ' ') {
 			break;
 		}
 
-		ret = ComputerDifficultyMove(board, ROW, COL);
-		if (0 == ret) {
-			ComputerEasyMove(board, ROW, COL);
-		}
+		PlayerMove(board, ROW, COL);
 		DisplayBoard(board, ROW, COL);
 		win = CheckWin(board, ROW, COL);
 		if (win != ' ') {
@@ -79,6 +82,175 @@ void gameDifficulty() {
 	else {
 		printf("平局！加油哦！！！\n");
 	}
+}
+
+void DifficultyPlayerStartMove() {
+	int win = 0;
+	char board[ROW][COL] = { 0 };
+	InitBoard(board, ROW, COL);
+	DisplayBoard(board, ROW, COL);
+	while (1) {
+		PlayerMove(board, ROW, COL);
+		DisplayBoard(board, ROW, COL);
+		win = CheckWin(board, ROW, COL);
+		if (win != ' ') {
+			break;
+		}
+	
+		ComputerEasyMove(board, ROW, COL);
+		DisplayBoard(board, ROW, COL);
+		win = CheckWin(board, ROW, COL);
+		if (win != ' ') {
+			break;
+		}
+	}
+	if (win == 'X') {
+		printf("玩家赢！恭喜您！！！\n");
+	}
+	else if (win == 'O') {
+		printf("电脑赢！别灰心，继续加油！！！\n");
+	}
+	else {
+		printf("平局！加油哦！！！\n");
+	}
+}
+
+void DifficultyComputerStartMove() {
+	int win = 0;
+	char board[ROW][COL] = { 0 };
+	InitBoard(board, ROW, COL);
+	DisplayBoard(board, ROW, COL);
+	while (1) {
+		//PlayerMove(board, ROW, COL);
+		//DisplayBoard(board, ROW, COL);
+		//win = CheckWin(board, ROW, COL);
+		//if (win != ' ') {
+		//	break;
+		//}
+
+		ComputerEasyMove(board, ROW, COL);
+		DisplayBoard(board, ROW, COL);
+		win = CheckWin(board, ROW, COL);
+		if (win != ' ') {
+			break;
+		}
+
+		PlayerMove(board, ROW, COL);
+		DisplayBoard(board, ROW, COL);
+		win = CheckWin(board, ROW, COL);
+		if (win != ' ') {
+			break;
+		}
+	}
+
+	if (win == 'X') {
+		printf("玩家赢！恭喜您！！！\n");
+	}
+	else if (win == 'O') {
+		printf("电脑赢！别灰心，继续加油！！！\n");
+	}
+	else {
+		printf("平局！加油哦！！！\n");
+	}
+}
+
+void gameEasy() {
+	int win = 0;
+	int input3 = 0;
+	menu2();
+	printf("请您选择谁先落子：> 1. 玩家先落子，2. 电脑先落子\n");
+	printf("请您选择：");
+	scanf("%d", &input3);
+	switch (input3) {
+	case PLAYER:
+		EasyPlayerStartMove();
+		break;
+	case COMPUTER:
+		EasyComputerStartMove();
+		break;
+	default:
+		printf("选择错误，请您重新选择！\n");
+		break;
+	}
+
+	//char board[ROW][COL] = { 0 };
+	//InitBoard(board, ROW, COL);
+	//DisplayBoard(board, ROW, COL);
+	//while (1) {
+	//	PlayerMove(board, ROW, COL);
+	//	DisplayBoard(board, ROW, COL);
+	//	win = CheckWin(board, ROW, COL);
+	//	if (win != ' ') {
+	//		break;
+	//	}
+
+	//	ComputerEasyMove(board, ROW, COL);
+	//	DisplayBoard(board, ROW, COL);
+	//	win = CheckWin(board, ROW, COL);
+	//	if (win != ' ') {
+	//		break;
+	//	}
+	//}
+	//if (win == 'X') {
+	//	printf("玩家赢！恭喜您！！！\n");
+	//}
+	//else if (win == 'O') {
+	//	printf("电脑赢！别灰心，继续加油！！！\n");
+	//}
+	//else {
+	//	printf("平局！加油哦！！！\n");
+	//}
+}
+
+void gameDifficulty() {
+	int win = 0;
+	int ret = 0;
+	int input3 = 0;
+	menu2();
+	printf("请您选择谁先落子：> 1. 玩家先落子，2. 电脑先落子\n");
+	printf("请您选择：");
+	scanf("%d", &input3);
+	switch (input3) {
+	case PLAYER:
+		DifficultyPlayerStartMove();
+		break;
+	case COMPUTER:
+		DifficultyComputerStartMove();
+		break;
+	default:
+		printf("选择错误，请您重新选择！\n");
+		break;
+	}
+	//char board[ROW][COL] = { 0 };
+	//InitBoard(board, ROW, COL);
+	//DisplayBoard(board, ROW, COL);
+	//while (1) {
+	//	PlayerMove(board, ROW, COL);
+	//	DisplayBoard(board, ROW, COL);
+	//	win = CheckWin(board, ROW, COL);
+	//	if (win != ' '); {
+	//		break;
+	//	}
+
+	//	ret = ComputerDifficultyMove(board, ROW, COL);
+	//	if (0 == ret) {
+	//		ComputerEasyMove(board, ROW, COL);
+	//	}
+	//	DisplayBoard(board, ROW, COL);
+	//	win = CheckWin(board, ROW, COL);
+	//	if (win != ' ') {
+	//		break;
+	//	}
+	//}
+	//if (win == 'X') {
+	//	printf("玩家赢！恭喜您！！！\n");
+	//}
+	//else if (win == 'O') {
+	//	printf("电脑赢！别灰心，继续加油！！！\n");
+	//}
+	//else {
+	//	printf("平局！加油哦！！！\n");
+	//}
 }
 
 void game() {

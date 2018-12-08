@@ -23,6 +23,11 @@ enum ED {
 	DIFFICULTY
 };
 
+enum MOVE {
+	PLAYER = 1,
+	COMPUTER
+};
+
 
 void InitBoard(char board[ROW][COL], int row, int col);
 void DisplayBoard(char board[ROW][COL], int row, int col);
@@ -30,6 +35,7 @@ void PlayerMove(char board[ROW][COL], int row, int col);
 void ComputerEasyMove(char board[ROW][COL], int row, int col);
 int ComputerDifficultyMove(char board[ROW][COL], int row, int col);
 char CheckWin(char board[ROW][COL], int row, int col);
+
 
 
 #endif // __GAME_H__
