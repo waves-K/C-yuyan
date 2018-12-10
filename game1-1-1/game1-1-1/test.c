@@ -110,7 +110,8 @@ void DifficultyPlayerStartMove() {
 	else if (win == 'O') {
 		printf("电脑赢！别灰心，继续加油！！！\n");
 	}
-	else {
+	else 
+	{
 		printf("平局！加油哦！！！\n");
 	}
 }

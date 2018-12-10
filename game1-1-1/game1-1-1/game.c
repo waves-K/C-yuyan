@@ -49,6 +49,7 @@ static int IsFull(char board[ROW][COL], int row, int col) {
 char CheckWin(char board[ROW][COL], int row, int col) {
 	int i = 0;
 	int j = 0;
+
 	for (i = 0; i < row; i++) {
 		for (j = 0; j < col; j++) {
 			if (board[i][j] == board[i][j + 1]
@@ -58,6 +59,7 @@ char CheckWin(char board[ROW][COL], int row, int col) {
 			}
 		}
 	}
+
 	for (i = 0; i < row; i++) {
 		for (j = 0; j < col; j++) {
 			if (board[i][j] == board[i + 1][j]
@@ -67,6 +69,7 @@ char CheckWin(char board[ROW][COL], int row, int col) {
 			}
 		}
 	}
+
 	for (i = 0; i < row; i++) {
 		for (j = 0; j < col; j++) {
 			if (board[i][j] == board[i + 1][j + 1]
@@ -76,15 +79,17 @@ char CheckWin(char board[ROW][COL], int row, int col) {
 			}
 		}
 	}
+
 	for (i = 0; i < row; i++) {
-		for (j = 0; j < col; j++) {
-			if (board[i][col - j - 1] == board[i + 1][col - j - 2]
-				&& board[i][col - j - 1] == board[i][col - j - 3]
-				&& board[i][col - j - 1] != ' ') {
-				return board[i][col - j - 1];
+		for (j = col; j >= 0; j++) {
+			if (board[i][j] == board[i + 1][j - 1]
+				&& board[i][j] == board[i + 2][j - 2]
+				&& board[i][j] != ' ') {
+				return board[i][j];
 			}
 		}
 	}
+
 	if (IsFull(board, ROW, COL)) {
 		return 'Q';
 	}
@@ -131,80 +136,110 @@ int ComputerDifficultyMove(char board[ROW][COL], int row, int col) {
 	int i = 0;
 	int j = 0;
 	printf("µçÄÔ×ß£¡\n");
+	
 	for (i = 0; i < row; i++) {
-		if ((board[i][0] == board[i][1]
-			&& board[i][2] == ' ')
-			&& board[i][0] != ' ') {
-			board[i][2] = 'O';
+		for (j = 0; j < col; j++) {
+			if (board[i][j] == ' ') {
+				continue;
+			}
+			if (i == row && j == col) {
+				board[(int)i / 2][(int)j / 2] = 'O';
+				break;
+			}
 			return 1;
+
+
+			//if (board[i][j] == board[i][j + 1]
+			//	&& board[i][j + 2] == ' '
+			//	&& board[i][j] != ' ') {
+			//	board[i][j + 2] = 'O';
+			//}
+			//if (board[i][j + 1] == board[i][j + 2]
+			//	&& board[i][j] == ' '
+			//	&& board[i][j + 1] != ' ') {
+			//	board[i][j] = 'O';
+			//}
+			//if(board[i][j] == board[i][j + 2]
+			//	&& board[i][j + 1] == ' '
+			//	&& board[i][j] != ' ') {
+			//	board[i][j + 1] = 'O';
+			//}
 		}
-		if ((board[i][1] == board[i][2]
-			&& board[i][0] == ' ')
-			&& board[i][1] != ' ') {
-			board[i][0] = 'O';
-			return 1;
-		}
-		if ((board[i][0] == board[i][2]
-			&& board[i][1] == ' ')
-			&& board[i][0] != ' ') {
-			board[i][1] = 'O';
-			return 1;
-		}
+		//if ((board[i][0] == board[i][1]
+		//	&& board[i][2] == ' ')
+		//	&& board[i][0] != ' ') {
+		//	board[i][2] = 'O';
+		//	return 1;
+		//}
+
+		//if ((board[i][1] == board[i][2]
+		//	&& board[i][0] == ' ')
+		//	&& board[i][1] != ' ') {
+		//	board[i][0] = 'O';
+		//	return 1;
+		//}
+
+		//if ((board[i][0] == board[i][2]
+		//	&& board[i][1] == ' ')
+		//	&& board[i][0] != ' ') {
+		//	board[i][1] = 'O';
+		//	return 1;
+		//}
 	}
-	for (j = 0; j < col; j++) {
-		if ((board[0][j] == board[1][j]
-			&& board[2][j] == ' ')
-			&& board[0][j] != ' ') {
-			board[2][j] = 'O';
-			return 1;
-		}
-		if ((board[1][j] == board[2][j]
-			&& board[0][j] == ' ')
-			&& board[1][j] != ' ') {
-			board[0][j] = 'O';
-			return 1;
-		}
-		if ((board[0][j] == board[2][j]
-			&& board[1][j] == ' ')
-			&& board[0][j] != ' ') {
-			board[1][j] = 'O';
-			return 1;
-		}
-	}
-	if ((board[0][0] == board[1][1]
-		&& board[3][3] == ' ')
-		&& board[0][0] != ' ') {
-		board[3][3] = 'O';
-		return 1;
-	}
-	else if ((board[2][2] == board[1][1]
-		&& board[0][0] == ' ')
-		&& board[1][1] != ' ') {
-		board[0][0] = 'O';
-		return 1;
-	}
-	else if ((board[0][0] == board[2][2]
-		&& board[1][1] == ' ')
-		&& board[0][0] != ' ') {
-		board[1][1] = 'O';
-		return 1;
-	}
-	else if ((board[0][2] == board[1][1]
-		&& board[2][0] == ' ')
-		&& board[0][2] != ' ') {
-		board[2][0] = 'O';
-		return 1;
-	}
-	else if ((board[1][1] == board[2][0]
-		&& board[0][2] == ' ')
-		&& board[1][1] != ' ') {
-		board[0][2] = 'O';
-		return 1;
-	}
-	else {
-		board[1][1] = 'O';
-		return 1;
-	}
-	return 0;
+	////for (j = 0; j < col; j++) {
+	////	if ((board[0][j] == board[1][j]
+	////		&& board[2][j] == ' ')
+	////		&& board[0][j] != ' ') {
+	////		board[2][j] = 'O';
+	////		return 1;
+	////	}
+	////	if ((board[1][j] == board[2][j]
+	////		&& board[0][j] == ' ')
+	////		&& board[1][j] != ' ') {
+	////		board[0][j] = 'O';
+	////		return 1;
+	////	}
+	////	if ((board[0][j] == board[2][j]
+	////		&& board[1][j] == ' ')
+	////		&& board[0][j] != ' ') {
+	////		board[1][j] = 'O';
+	////		return 1;
+	////	}
+	////}
+	////if ((board[0][0] == board[1][1]
+	////	&& board[3][3] == ' ')
+	////	&& board[0][0] != ' ') {
+	////	board[3][3] = 'O';
+	////	return 1;
+	////}
+	////else if ((board[2][2] == board[1][1]
+	////	&& board[0][0] == ' ')
+	////	&& board[1][1] != ' ') {
+	////	board[0][0] = 'O';
+	////	return 1;
+	////}
+	////else if ((board[0][0] == board[2][2]
+	////	&& board[1][1] == ' ')
+	////	&& board[0][0] != ' ') {
+	////	board[1][1] = 'O';
+	////	return 1;
+	////}
+	////else if ((board[0][2] == board[1][1]
+	////	&& board[2][0] == ' ')
+	////	&& board[0][2] != ' ') {
+	////	board[2][0] = 'O';
+	////	return 1;
+	////}
+	////else if ((board[1][1] == board[2][0]
+	////	&& board[0][2] == ' ')
+	////	&& board[1][1] != ' ') {
+	////	board[0][2] = 'O';
+	////	return 1;
+	////}
+	////else {
+	////	board[1][1] = 'O';
+	////	return 1;
+	////}
+	////return 0;
 } 
 
