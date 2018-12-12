@@ -97,7 +97,7 @@ void DifficultyPlayerStartMove() {
 			break;
 		}
 	
-		ComputerEasyMove(board, ROW, COL);
+		ComputerDifficultyMove(board, ROW, COL);
 		DisplayBoard(board, ROW, COL);
 		win = CheckWin(board, ROW, COL);
 		if (win != ' ') {
@@ -129,7 +129,7 @@ void DifficultyComputerStartMove() {
 		//	break;
 		//}
 
-		ComputerEasyMove(board, ROW, COL);
+		ComputerDifficultyMove(board, ROW, COL);
 		DisplayBoard(board, ROW, COL);
 		win = CheckWin(board, ROW, COL);
 		if (win != ' ') {

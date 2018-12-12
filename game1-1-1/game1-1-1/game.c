@@ -81,7 +81,7 @@ char CheckWin(char board[ROW][COL], int row, int col) {
 	}
 
 	for (i = 0; i < row; i++) {
-		for (j = col; j >= 0; j++) {
+		for (j = col - 1; j >= 0; j--) {
 			if (board[i][j] == board[i + 1][j - 1]
 				&& board[i][j] == board[i + 2][j - 2]
 				&& board[i][j] != ' ') {
@@ -140,11 +140,9 @@ int ComputerDifficultyMove(char board[ROW][COL], int row, int col) {
 	for (i = 0; i < row; i++) {
 		for (j = 0; j < col; j++) {
 			if (board[i][j] == ' ') {
-				continue;
-			}
-			if (i == row && j == col) {
-				board[(int)i / 2][(int)j / 2] = 'O';
-				break;
+				if (i == (row - 1) && j == (col - 1)) {
+					board[i][j] = 'O';	
+				}
 			}
 			return 1;
 
